@@ -40,24 +40,37 @@ A powerful Python script to organize files by extension (and optionally by date)
 
 ## ⚙️ How It Works
 
-1. **Prompts for source and destination directory**  
-2. **Optionally:**
-   - Grants universal access  
-   - Deletes zero-byte files  
-   - Organizes files into dated folders  
-3. **Identifies and removes duplicates**  
-4. **Moves files into destination folders grouped by extension**  
-5. **Cleans up empty directories**  
-6. **Prints a detailed summary**
+1. **Prompts for source and destination directory**
+2. 
+3. **Optionally:**
+4. 
+   - Grants universal access
+   - 
+   - Deletes zero-byte files
+   - 
+   - Organizes files into dated folders
+   - 
+5. **Identifies and removes duplicates**
+6. 
+7. **Moves files into destination folders grouped by extension**
+8. 
+9. **Cleans up empty directories**
+10. 
+11. **Prints a detailed summary**
+12. 
 
 ---
 
 ## 🧾 Usage
 
-Run the script directly in shell:
+Run the script directly in cli:
 
 ```bash
 python file_organizer.py
+
+or
+
+py file_organizer.py
 ```
 
 You will be prompted to:
@@ -115,10 +128,15 @@ Enter source directory: /Users/you/Downloads
 Enter destination directory (press Enter to use source): /Users/you/Organized
 
 Cleanup Options:
+
 Delete zero-byte files permanently? (y/N): y
+
 Delete empty directories? (y/N): y
+
 Grant universal access to all files/folders? (y/N): y
+
 Also organize into date subfolders? (y/N): y
+
 Enable verbose output? (y/N): y
 
 Starting operations on: /Users/you/Downloads
@@ -129,12 +147,19 @@ Moved: /Downloads/photo1.jpg -> /Organized/jpg/2025-10-13/photo1.jpg
 Deleted older duplicate: /Downloads/old_photo1.jpg
 ...
 OPERATION COMPLETED!
+
 SUMMARY:
-Universal access granted: 215 items  
+
+Universal access granted: 215 items 
+
 Zero-byte files deleted: 5  
+
 Files organized: 173  
+
 Already in place: 2  
+
 Empty directories removed: 23
+
 
 📄 License
 
