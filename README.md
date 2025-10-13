@@ -66,11 +66,11 @@ A powerful Python script to organize files by extension (and optionally by date)
 Run the script directly in cli:
 
 ```bash
-python file_organizer.py
+python CLARIFY.py
 
 or
 
-py file_organizer.py
+py CLARIFY.py
 ```
 
 You will be prompted to:
