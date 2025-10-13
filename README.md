@@ -1,9 +1,3 @@
-CLARIFY – Clean, Locate, Arrange, Remove, Index Files for You
-
-I also updated the title and first description to reflect the name change.
-
-markdown
-Copy code
 # CLARIFY - Clean, Locate, Arrange, Remove, Index Files for You
 
 **CLARIFY** is a cross-platform script that deduplicates files by hash, organizes them by extension/date, manages access permissions, and cleans up zero-byte files and empty folders. It skips system-critical directories and offers verbose output—ideal for admins, hoarders, and backup users.
