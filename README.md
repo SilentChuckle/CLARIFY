@@ -1,6 +1,12 @@
-# Universal-File-Intelligent-File-Deduplicator-And-Access-Manager
-Universal Organizer is a cross-platform script that deduplicates files by hash, organizes them by extension/date, manages access permissions, and cleans up zero-byte files and empty folders. It skips system-critical directories and offers verbose output—ideal for admins, hoarders, and backup users.
+CLARIFY – Clean, Locate, Arrange, Remove, Index Files for You
 
+I also updated the title and first description to reflect the name change.
+
+markdown
+Copy code
+# CLARIFY - Clean, Locate, Arrange, Remove, Index Files for You
+
+**CLARIFY** is a cross-platform script that deduplicates files by hash, organizes them by extension/date, manages access permissions, and cleans up zero-byte files and empty folders. It skips system-critical directories and offers verbose output—ideal for admins, hoarders, and backup users.
 
 # 🗂️ File Organizer with Universal Access and Deduplication
 
@@ -10,44 +16,44 @@ A powerful Python script to organize files by extension (and optionally by date)
 
 ## 🚀 Features
 
-- ✅ Organize files by extension into destination directories
-- 📅 Optional organization by modification date (e.g., `2025-10-13`)
-- 🧹 Remove duplicate files (based on content hash + last modified time)
-- ⚖️ Automatically resolves file conflicts with smart overwrite logic
-- 🔓 Optionally grants **universal access** to all files/folders
-- 🧺 Delete empty folders and zero-byte files
-- 🛡️ Skips critical system directories and files to prevent corruption
+- ✅ Organize files by extension into destination directories  
+- 📅 Optional organization by modification date (e.g., `2025-10-13`)  
+- 🧹 Remove duplicate files (based on content hash + last modified time)  
+- ⚖️ Automatically resolves file conflicts with smart overwrite logic  
+- 🔓 Optionally grants **universal access** to all files/folders  
+- 🧺 Delete empty folders and zero-byte files  
+- 🛡️ Skips critical system directories and files to prevent corruption  
 - 🖥️ Cross-platform: supports **Windows**, **Linux**, and **macOS**
 
 ---
 
 ## 📂 Example Use Cases
 
-- Cleaning up downloaded files or exported data
-- Merging and deduplicating folders from backups
-- Preparing shared folders with universal access
+- Cleaning up downloaded files or exported data  
+- Merging and deduplicating folders from backups  
+- Preparing shared folders with universal access  
 - Organizing camera or media exports by date/type
 
 ---
 
 ## 🛠️ Requirements
 
-- Python 3.6+
-- Works out-of-the-box with standard libraries
+- Python 3.6+  
+- Works out-of-the-box with standard libraries  
 - On **Windows**, admin rights are recommended if changing file permissions
 
 ---
 
 ## ⚙️ How It Works
 
-1. **Prompts for source and destination directory**
+1. **Prompts for source and destination directory**  
 2. **Optionally:**
-   - Grants universal access
-   - Deletes zero-byte files
-   - Organizes files into dated folders
-3. **Identifies and removes duplicates**
-4. **Moves files into destination folders grouped by extension**
-5. **Cleans up empty directories**
+   - Grants universal access  
+   - Deletes zero-byte files  
+   - Organizes files into dated folders  
+3. **Identifies and removes duplicates**  
+4. **Moves files into destination folders grouped by extension**  
+5. **Cleans up empty directories**  
 6. **Prints a detailed summary**
 
 ---
@@ -55,11 +61,11 @@ A powerful Python script to organize files by extension (and optionally by date)
 ## 🧾 Usage
 
 Run the script directly in shell:
-```
 
+```bash
 python file_organizer.py
-
 ```
+
 You will be prompted to:
 
 Enter the source directory
@@ -84,7 +90,7 @@ Windows: Grants full control to the Everyone group using icacls
 
 Linux/macOS: Sets directory permissions to 755 and file permissions to 644
 
-Note: You may need admin/root privileges depending on file ownership
+📌 Note: You may need admin/root privileges depending on file ownership
 
 ⚠️ Safety Warnings
 
@@ -130,10 +136,10 @@ Deleted older duplicate: /Downloads/old_photo1.jpg
 ...
 OPERATION COMPLETED!
 SUMMARY:
-Universal access granted: 215 items
-Zero-byte files deleted: 5
-Files organized: 173
-Already in place: 2
+Universal access granted: 215 items  
+Zero-byte files deleted: 5  
+Files organized: 173  
+Already in place: 2  
 Empty directories removed: 23
 
 📄 License
@@ -142,8 +148,7 @@ This script is provided as-is, with no warranty or guarantee. Use at your own ri
 
 🧠 Author Notes
 
-Designed for safe and effective cleanup of large and messy folders
-
+Designed for safe and effective cleanup of large and messy folders.
 Feedback or contributions welcome!
 
-Happy organizing!
+Happy organizing with CLARIFY!
