@@ -1,173 +1,88 @@
-# CLARIFY - Clean, Locate, Arrange, Remove, Index Files for You
+# CLARIFY (2026 Edition)
 
-**CLARIFY** is a cross-platform script that deduplicates files by hash, organizes them by extension/date, manages access permissions, and cleans up zero-byte files and empty folders. It skips system-critical directories and offers verbose output—ideal for admins, hoarders, and backup users.
+**Clarify** is a dedicated Windows file organization, deduplication, and directory maintenance tool. It cleans up unorganized directories by grouping files into extension- and date-based taxonomies, eliminating duplicate content safely using cryptographic verification, and enforcing file system permissions across user profiles.
 
-# 🗂️ File Organizer with Universal Access and Deduplication
-
-A powerful Python script to organize files by extension (and optionally by date), automatically remove duplicates (retaining the newest version), clean up zero-byte files, and optionally grant universal access permissions to all files and folders.
+The **2026 Edition** upgrades Clarify from a terminal-based script to a threaded desktop app featuring an asynchronous GUI, compound file validation, custom timestamp renaming, and user-defined directory protections.
 
 ---
 
-## 🚀 Features
+## Technical Comparison: Original vs. 2026 Edition
 
-- ✅ Organize files by extension into destination directories  
-- 📅 Optional organization by modification date (e.g., `2025-10-13`)  
-- 🧹 Remove duplicate files (based on content hash + last modified time)  
-- ⚖️ Automatically resolves file conflicts with smart overwrite logic  
-- 🔓 Optionally grants **universal access** to all files/folders  
-- 🧺 Delete empty folders and zero-byte files  
-- 🛡️ Skips critical system directories and files to prevent corruption  
-- 🖥️ Cross-platform: supports **Windows**, **Linux**, and **macOS**
-
----
-
-## 📂 Example Use Cases
-
-- Cleaning up downloaded files or exported data  
-- Merging and deduplicating folders from backups  
-- Preparing shared folders with universal access  
-- Organizing camera or media exports by date/type
+| Feature / Subsystem | Clarify (Original) | Clarify (2026) |
+| :--- | :--- | :--- |
+| **User Interface** | Interactive Terminal (CLI) | Asynchronous Graphical Interface (Tkinter GUI) |
+| **OS Compatibility** | Cross-platform (Windows / Unix) | Optimized for Windows System Administration |
+| **Deduplication Strategy** | SHA-256 Hash | Compound Index: `(SHA-256 Hash, File Byte Size)` |
+| **File Renaming Subsystem** | Passive (Retains original names) | Configurable Timestamp Engine (Full, Prefix, Suffix) |
+| **Safety Restrictions** | Hardcoded OS System Directory Filters | OS System Directory Filters + User-Defined Protected Roots |
+| **Configuration State** | Non-persistent (Prompt-driven) | Persistent JSON State (`clarify_config.json`) |
+| **Execution Architecture** | Single-threaded (Blocking) | Multi-threaded Daemon (`threading.Thread`) |
+| **Audit Logging** | Terminal output stream | Live UI Log Box + File Logging (`clarify_error.log`) |
 
 ---
 
-## 🛠️ Requirements
+## Key Features in Clarify (2026)
 
-- Python 3.6+  
-- Works out-of-the-box with standard libraries  
-- On **Windows**, admin rights are recommended if changing file permissions
-
----
-
-## ⚙️ How It Works
-
-1. **Prompts for source and destination directory**
-2. 
-3. **Optionally:**
-4. 
-   - Grants universal access
-   - 
-   - Deletes zero-byte files
-   - 
-   - Organizes files into dated folders
-   - 
-5. **Identifies and removes duplicates**
-6. 
-7. **Moves files into destination folders grouped by extension**
-8. 
-9. **Cleans up empty directories**
-10. 
-11. **Prints a detailed summary**
-12. 
+* **Asynchronous Multi-Threaded Engine**: Long-running scans and file transfers execute off the primary UI thread, keeping the interface responsive and allowing process interrupts at any stage.
+* **Compound Hash & Size Deduplication**: Pairs 256-bit SHA-256 content hashing with strict byte-length comparisons to ensure duplicate identification is accurate before purging older variants.
+* **Dynamic Timestamp Renaming Engine**: Formats file names according to their exact creation or modification date (`DD-MM-YYYY--HH-MM-SS`):
+  * **Full**: Replaces original filename stem with the timestamp (`10-08-2026--14-30-00.png`).
+  * **Prefix**: Prepends timestamp to existing filename (`10-08-2026--14-30-00_photo.png`).
+  * **Suffix**: Appends timestamp to existing filename (`photo_10-08-2026--14-30-00.png`).
+* **Custom Protected Folders**: Allows users to define custom directory trees that are protected from modification during batch processing, alongside default OS exclusions (`$Recycle.bin`, `System Volume Information`, `Windows`, `Program Files`).
+* **Universal Access Enforcement (Windows ACL)**: Invokes native Windows Access Control Lists (`icacls`) to grant full access rights (`Everyone:F`) across targeted structures when run with administrator privileges.
+* **Directory Sanitization**: Features automatic zero-byte file deletion and top-down empty folder cleanup.
 
 ---
 
-## 🧾 Usage
+## Installation & Requirements
 
-Run the script directly in cli:
+* **Operating System**: Windows 10 / 11
+* **Runtime Requirement**: Python 3.8+ (Tkinter included in standard installations)
+
+### Installation
+Clone or download the repository to your local environment:
 
 ```bash
-python CLARIFY.py
-
-or
-
-py CLARIFY.py
+git clone https://github.com/your-username/clarify.git
+cd clarify
 ```
 
-You will be prompted to:
+Run the application directly:
 
-Enter the source directory
+```bash
+python "Clarify (20206).py"
+```
 
-Enter a destination directory (defaults to source if empty)
+---
 
-Choose cleanup options:
+## How It Works
 
-Delete zero-byte files?
+1. **Path Selection**: Specify the target **Source** directory. Optionally set a separate **Destination** directory (if left blank, files are reorganized within the source directory).
+2. **Configure Protections**: Add critical directories to the **Protected Folders** list to ensure they are excluded from file moves or deduplication passes.
+3. **Select Execution Parameters**:
+   * Toggle **Date Subfolders** (`YYYY-MM-DD`) to organize inside extension folders.
+   * Toggle **Timestamp Renaming** and pick between *Full*, *Prefix*, or *Suffix* modes.
+   * Toggle optional cleanup tasks (**Delete zero-byte files**, **Delete empty directories**, **Grant universal access**).
+4. **Execution**: Click **Start Organization**. Progress is logged in real-time within the UI text window. Click **Stop** at any time to break execution safely.
 
-Delete empty directories?
+---
 
-Grant universal access?
+## Configuration & Error Logging
 
-Organize into date subfolders?
+* **JSON Configuration (`clarify_config.json`)**: Saved preferences (directory paths, protected folders, renaming modes) automatically persist across sessions.
+* **Error Log (`clarify_error.log`)**: When **Enable Error Log** is enabled, permission denials, locked file exceptions, or read errors write directly to this file with ISO 8601 timestamps for auditing.
 
-Enable verbose output?
+---
 
-🔐 Universal Access Explanation
+## Safety & System Protection
 
-Windows: Grants full control to the Everyone group using icacls
+To protect system integrity, Clarify enforces hardcoded path skips on the following directories:
+* `C:\Windows`
+* `C:\Program Files` & `C:\Program Files (x86)`
+* `C:\ProgramData`
+* `$Recycle.Bin`
+* `System Volume Information`
+* Boot and Recovery partitions
 
-Linux/macOS: Sets directory permissions to 755 and file permissions to 644
-
-📌 Note: You may need admin/root privileges depending on file ownership
-
-⚠️ Safety Warnings
-
-❗ System directories like Windows, Program Files, and System Volume Information are automatically skipped
-
-⚠️ Always back up your data before organizing large or important folders
-
-🧪 Use the script in a test directory before applying it to sensitive locations
-
-📦 Output Structure
-
-Organized files will be moved to:
-
-swift
-Copy code
-/destination_folder/
-    ├── jpg/
-    │   ├── 2025-10-13/
-    │   └── ...
-    ├── pdf/
-    ├── txt/
-    └── no-extension/
-
-🧪 Sample Output
-bash
-Copy code
-Enter source directory: /Users/you/Downloads
-Enter destination directory (press Enter to use source): /Users/you/Organized
-
-Cleanup Options:
-
-Delete zero-byte files permanently? (y/N): y
-
-Delete empty directories? (y/N): y
-
-Grant universal access to all files/folders? (y/N): y
-
-Also organize into date subfolders? (y/N): y
-
-Enable verbose output? (y/N): y
-
-Starting operations on: /Users/you/Downloads
-Organizing to: /Users/you/Organized
---------------------------------------------------
-Organizing files and removing duplicates...
-Moved: /Downloads/photo1.jpg -> /Organized/jpg/2025-10-13/photo1.jpg
-Deleted older duplicate: /Downloads/old_photo1.jpg
-...
-OPERATION COMPLETED!
-
-SUMMARY:
-
-Universal access granted: 215 items 
-
-Zero-byte files deleted: 5  
-
-Files organized: 173  
-
-Already in place: 2  
-
-Empty directories removed: 23
-
-
-📄 License
-
-This script is provided as-is, with no warranty or guarantee. Use at your own risk.
-
-🧠 Author Notes
-
-Designed for safe and effective cleanup of large and messy folders.
-Feedback or contributions welcome!
-
-Happy organizing with CLARIFY!
+Files matching these path prefixes will be skipped during directory traversals.
