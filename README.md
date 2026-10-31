@@ -44,4 +44,4 @@ Run with **Preview only** ticked first.
 
 ## License
 
-MIT. See [LICENSE](LICENSE).
+[PolyForm Noncommercial License 1.0.0](LICENSE): free for any non-commercial use. Commercial use requires written permission from the author.
