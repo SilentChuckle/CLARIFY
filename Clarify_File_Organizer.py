@@ -745,21 +745,12 @@ def organize_files_with_dedup(source_dir, dest_dir, active_criteria_keys, protec
 SIGNATURE = "SilentChuckle"
 
 # The license text shown in the "About & License" section (the same text is in the file header).
-MIT_LICENSE_TEXT = (
-    "MIT License\n\n"
-    "Copyright (c) 2026 SilentChuckle\n\n"
-    "Permission is hereby granted, free of charge, to any person obtaining a copy of this software and "
-    "associated documentation files (the \"Software\"), to deal in the Software without restriction, including "
-    "without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell "
-    "copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the "
-    "following conditions:\n\n"
-    "The above copyright notice and this permission notice shall be included in all copies or substantial "
-    "portions of the Software.\n\n"
-    "THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT "
-    "LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO "
-    "EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER "
-    "IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE "
-    "USE OR OTHER DEALINGS IN THE SOFTWARE."
+LICENSE_TEXT = (
+    "PolyForm Noncommercial License 1.0.0\n\n"
+    "Required Notice: Copyright (c) 2026 SilentChuckle (https://github.com/Merely-Human)\n\n"
+    "This software is free for any non-commercial purpose under the PolyForm Noncommercial License 1.0.0. "
+    "Commercial use requires written permission from the author.\n\n"
+    "Full terms: https://polyformproject.org/licenses/noncommercial/1.0.0"
 )
 
 # The colours of the window in one place, so the whole look can be changed here.
@@ -1155,9 +1146,9 @@ class ClarifyGUI:
         about = section("About & License", opened=False)
         ttk.Label(about, text=f"Written by {SIGNATURE}", style="Card.TLabel",
                   font=("Segoe UI", 10, "bold")).pack(anchor="w")
-        ttk.Label(about, text=MIT_LICENSE_TEXT, style="CardMuted.TLabel", justify="left",
+        ttk.Label(about, text=LICENSE_TEXT, style="CardMuted.TLabel", justify="left",
                   wraplength=680).pack(anchor="w", pady=(6, 0))
-        ttk.Label(page, text=f"{SIGNATURE}  |  MIT License", style="Muted.TLabel").pack(anchor="e", pady=(8, 0))
+        ttk.Label(page, text=f"{SIGNATURE}  |  PolyForm Noncommercial 1.0.0", style="Muted.TLabel").pack(anchor="e", pady=(8, 0))
         self.root.after(10, self._fit_window)
 
     # ---- window size --------------------------------------------------------------------------
