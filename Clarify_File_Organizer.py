@@ -24,7 +24,7 @@ HOW IT WORKS (the big picture)
        and give your own account full access to files that Windows locked you out of.
 
 HOW TO USE IT
-    Double-click this file, or run:  python SilentChuckle-clarify_file_organizer_v3.py --source D:\\Downloads --dest D:\\Sorted
+    Double-click this file, or run:  python Clarify_File_Organizer.py --source D:\\Downloads --dest D:\\Sorted
     Tick "Preview only" first to see what WOULD happen without touching a single file.
 
 SAFETY
